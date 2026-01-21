@@ -2,11 +2,13 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 const navItems = [
   { label: "About", href: "#about" },
   { label: "Projects", href: "#projects" },
   { label: "Skills", href: "#skills" },
+  { label: "Testimonials", href: "#testimonials" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -56,7 +58,7 @@ const Navbar = () => {
             </a>
 
             {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center gap-8">
+            <div className="hidden md:flex items-center gap-6">
               {navItems.map((item) => (
                 <button
                   key={item.label}
@@ -67,6 +69,7 @@ const Navbar = () => {
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full" />
                 </button>
               ))}
+              <ThemeToggle />
               <Button size="sm" onClick={() => scrollToSection("#contact")}>
                 Hire Me
               </Button>
@@ -116,11 +119,13 @@ const Navbar = () => {
                 <motion.div
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.4 }}
+                  transition={{ delay: 0.5 }}
+                  className="flex items-center gap-4 mt-6"
                 >
+                  <ThemeToggle />
                   <Button
                     size="lg"
-                    className="w-full mt-4"
+                    className="flex-1"
                     onClick={() => scrollToSection("#contact")}
                   >
                     Hire Me
