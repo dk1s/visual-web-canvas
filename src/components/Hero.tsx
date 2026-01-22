@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
+import { ArrowDown, Github, Linkedin, Mail, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Hero = () => {
@@ -35,6 +35,17 @@ const Hero = () => {
             ease: "easeInOut",
           }}
         />
+        <motion.div
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/3 rounded-full blur-3xl"
+          animate={{
+            rotate: [0, 360],
+          }}
+          transition={{
+            duration: 30,
+            repeat: Infinity,
+            ease: "linear",
+          }}
+        />
       </div>
 
       {/* Grid pattern overlay */}
@@ -54,7 +65,7 @@ const Hero = () => {
             transition={{ delay: 0.2, duration: 0.5 }}
           >
             <span className="px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium border border-primary/20">
-              Available for new projects
+              🚀 Software Developer • Open to Opportunities
             </span>
           </motion.div>
 
@@ -77,20 +88,29 @@ const Hero = () => {
           </motion.h1>
 
           <motion.p
-            className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed"
+            className="text-xl md:text-2xl text-muted-foreground mb-4 max-w-2xl mx-auto leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.6 }}
           >
-            B.Tech Computer Science Student & Full-Stack Developer passionate about
-            crafting innovative solutions. Specializing in web development and AI/ML technologies.
+            Software Developer Trainee at <span className="text-primary font-semibold">86 Agency</span>
+          </motion.p>
+
+          <motion.p
+            className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5, duration: 0.6 }}
+          >
+            B.Tech in Electronics & Communication Engineering • Passionate about building 
+            responsive web applications with React, Next.js, TypeScript & Tailwind CSS
           </motion.p>
 
           <motion.div
             className="flex flex-wrap items-center justify-center gap-4 mb-12"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 0.6 }}
+            transition={{ delay: 0.6, duration: 0.6 }}
           >
             <Button size="lg" onClick={scrollToProjects} className="group">
               View My Work
@@ -98,6 +118,12 @@ const Hero = () => {
             </Button>
             <Button size="lg" variant="outline" asChild>
               <a href="#contact">Get in Touch</a>
+            </Button>
+            <Button size="lg" variant="secondary" asChild>
+              <a href="https://dk1s.github.io/Portfolio/" target="_blank" rel="noopener noreferrer">
+                <Download className="mr-2 h-4 w-4" />
+                Resume
+              </a>
             </Button>
           </motion.div>
 
@@ -108,7 +134,7 @@ const Hero = () => {
             transition={{ delay: 0.7, duration: 0.6 }}
           >
             <a
-              href="https://github.com"
+              href="https://github.com/dk1s"
               target="_blank"
               rel="noopener noreferrer"
               className="p-3 rounded-full bg-muted/50 hover:bg-muted text-muted-foreground hover:text-foreground transition-all hover:scale-110"
@@ -124,7 +150,7 @@ const Hero = () => {
               <Linkedin className="h-5 w-5" />
             </a>
             <a
-              href="mailto:hello@example.com"
+              href="mailto:deepak@example.com"
               className="p-3 rounded-full bg-muted/50 hover:bg-muted text-muted-foreground hover:text-foreground transition-all hover:scale-110"
             >
               <Mail className="h-5 w-5" />

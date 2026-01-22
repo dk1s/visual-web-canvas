@@ -1,27 +1,36 @@
 import { motion } from "framer-motion";
-import { Code2, Lightbulb, Rocket, Users } from "lucide-react";
+import { Code2, Lightbulb, Rocket, Users, Brain, Target } from "lucide-react";
 
 const values = [
   {
+    icon: Brain,
+    title: "Quick Learner",
+    description: "Rapidly adapting to new technologies and frameworks with a strong analytical mindset.",
+  },
+  {
     icon: Code2,
     title: "Clean Code",
-    description: "Writing maintainable, well-documented code that stands the test of time.",
+    description: "Writing maintainable, well-structured code following best practices and modern standards.",
   },
   {
     icon: Lightbulb,
-    title: "Innovation",
-    description: "Constantly exploring new technologies and creative solutions.",
+    title: "Problem Solver",
+    description: "Delivering innovative solutions through technical expertise and creative thinking.",
   },
   {
-    icon: Users,
-    title: "Collaboration",
-    description: "Building strong relationships and working effectively in teams.",
+    icon: Target,
+    title: "Goal-Oriented",
+    description: "Focused on delivering results and exceeding expectations in every project.",
   },
-  {
-    icon: Rocket,
-    title: "Performance",
-    description: "Optimizing for speed, scalability, and exceptional user experience.",
-  },
+];
+
+const certifications = [
+  { name: "Web Development", issuer: "Internshala" },
+  { name: "The Ultimate React Course 2025", issuer: "Udemy" },
+  { name: "JavaScript For Beginners", issuer: "Udemy" },
+  { name: "Programming With Python", issuer: "Internshala" },
+  { name: "Geo-processing With Python", issuer: "ISRO (IIRS), Dehradun" },
+  { name: "IT Essential & Cybersecurity", issuer: "CISCO Network Academy" },
 ];
 
 const About = () => {
@@ -75,26 +84,30 @@ const About = () => {
               className="space-y-6"
             >
               <p className="text-lg text-muted-foreground leading-relaxed">
-                I'm a passionate Full-Stack Developer with over 5 years of experience
-                building web applications that make a difference. My journey in tech
-                started with a curiosity about how things work, which led me to explore
-                the depths of software engineering.
+                I'm a <span className="text-primary font-semibold">Software Developer Trainee</span> at 86 Agency, 
+                where I build responsive web applications using React, Next.js, TypeScript, and Tailwind CSS. 
+                I've contributed to projects like <span className="text-foreground font-medium">Logyxpress, CricArabia, and Cric 11 (Fantasy)</span>.
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Currently, I specialize in React, TypeScript, Node.js, and cloud
-                technologies. I love tackling complex challenges and transforming
-                ideas into polished, user-friendly products.
+                With a <span className="text-foreground font-medium">B.Tech in Electronics & Communication Engineering</span> from 
+                Bihar Engineering University (7.71 CGPA), I bring a strong analytical foundation to software development.
+                I'm proficient in state management with Redux and Zustand, and I love building CRUD applications.
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                When I'm not coding, you'll find me exploring new frameworks,
-                contributing to open-source projects, or sharing knowledge with
-                the developer community.
+                When I'm not coding, you'll find me contributing to open-source projects, 
+                playing chess, or exploring robotics projects. I'm always eager to learn and 
+                take on new challenges.
               </p>
+              
+              <div className="flex flex-wrap gap-2 pt-4">
+                <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">🌐 English (Proficient)</span>
+                <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">🇮🇳 Hindi (Native)</span>
+              </div>
             </motion.div>
           </div>
 
           {/* Values */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
             {values.map((value, index) => (
               <motion.div
                 key={value.title}
@@ -115,6 +128,33 @@ const About = () => {
               </motion.div>
             ))}
           </div>
+
+          {/* Certifications */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h3 className="text-2xl font-semibold text-foreground text-center mb-8">
+              Certifications & Training
+            </h3>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {certifications.map((cert, index) => (
+                <motion.div
+                  key={cert.name}
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.05 * index }}
+                  className="p-4 rounded-lg bg-card border border-border hover:border-primary/30 transition-all hover:shadow-lg"
+                >
+                  <div className="text-sm font-medium text-foreground">{cert.name}</div>
+                  <div className="text-xs text-muted-foreground mt-1">By: {cert.issuer}</div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
         </motion.div>
       </div>
     </section>

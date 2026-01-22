@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, MapPin, Phone, Send, CheckCircle } from "lucide-react";
+import { Mail, MapPin, Send, CheckCircle, Github, Linkedin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -18,20 +18,26 @@ const contactInfo = [
   {
     icon: Mail,
     label: "Email",
-    value: "hello@johndoe.dev",
-    href: "mailto:hello@johndoe.dev",
-  },
-  {
-    icon: Phone,
-    label: "Phone",
-    value: "+1 (555) 123-4567",
-    href: "tel:+15551234567",
+    value: "deepakkumar@email.com",
+    href: "mailto:deepakkumar@email.com",
   },
   {
     icon: MapPin,
     label: "Location",
-    value: "San Francisco, CA",
+    value: "Bihar, India",
     href: null,
+  },
+  {
+    icon: Github,
+    label: "GitHub",
+    value: "github.com/dk1s",
+    href: "https://github.com/dk1s",
+  },
+  {
+    icon: Linkedin,
+    label: "LinkedIn",
+    value: "Connect with me",
+    href: "https://linkedin.com",
   },
 ];
 
@@ -52,7 +58,6 @@ const Contact = () => {
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
-    // Clear error when user starts typing
     if (errors[name]) {
       setErrors((prev) => ({ ...prev, [name]: "" }));
     }
@@ -62,7 +67,6 @@ const Contact = () => {
     e.preventDefault();
     setErrors({});
 
-    // Validate form data
     const result = contactSchema.safeParse(formData);
     if (!result.success) {
       const fieldErrors: Record<string, string> = {};
@@ -76,8 +80,6 @@ const Contact = () => {
     }
 
     setIsSubmitting(true);
-
-    // Simulate form submission
     await new Promise((resolve) => setTimeout(resolve, 1500));
 
     setIsSubmitting(false);
@@ -87,7 +89,6 @@ const Contact = () => {
       description: "Thank you for reaching out. I'll get back to you soon.",
     });
 
-    // Reset form after delay
     setTimeout(() => {
       setIsSubmitted(false);
       setFormData({ name: "", email: "", subject: "", message: "" });
@@ -135,11 +136,11 @@ const Contact = () => {
                 </h3>
                 <p className="text-muted-foreground">
                   I'm always open to discussing new projects, creative ideas, or
-                  opportunities to be part of your vision.
+                  opportunities to be part of your team. Currently open to full-time positions.
                 </p>
               </div>
 
-              <div className="space-y-6">
+              <div className="space-y-4">
                 {contactInfo.map((info, index) => (
                   <motion.div
                     key={info.label}
@@ -147,24 +148,26 @@ const Contact = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.1 * index }}
-                    className="flex items-center gap-4"
+                    className="flex items-center gap-4 p-3 rounded-lg hover:bg-muted/50 transition-colors"
                   >
-                    <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                    <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
                       <info.icon className="h-5 w-5 text-primary" />
                     </div>
                     <div>
-                      <div className="text-sm text-muted-foreground">
+                      <div className="text-xs text-muted-foreground uppercase tracking-wider">
                         {info.label}
                       </div>
                       {info.href ? (
                         <a
                           href={info.href}
-                          className="text-foreground font-medium hover:text-primary transition-colors"
+                          target={info.href.startsWith("http") ? "_blank" : undefined}
+                          rel={info.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                          className="text-sm font-medium text-foreground hover:text-primary transition-colors"
                         >
                           {info.value}
                         </a>
                       ) : (
-                        <span className="text-foreground font-medium">
+                        <span className="text-sm font-medium text-foreground">
                           {info.value}
                         </span>
                       )}
@@ -172,6 +175,21 @@ const Contact = () => {
                   </motion.div>
                 ))}
               </div>
+
+              {/* Hobbies section */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="p-4 rounded-xl bg-muted/30 border border-border"
+              >
+                <h4 className="text-sm font-semibold text-foreground mb-2">When I'm not coding</h4>
+                <div className="flex flex-wrap gap-2">
+                  <span className="text-xs px-2 py-1 bg-primary/10 text-primary rounded-full">♟️ Chess</span>
+                  <span className="text-xs px-2 py-1 bg-primary/10 text-primary rounded-full">🤖 Robotics</span>
+                  <span className="text-xs px-2 py-1 bg-primary/10 text-primary rounded-full">🔓 Open Source</span>
+                </div>
+              </motion.div>
             </motion.div>
 
             {/* Contact Form */}
@@ -215,7 +233,7 @@ const Contact = () => {
                         <Input
                           id="name"
                           name="name"
-                          placeholder="John Doe"
+                          placeholder="Your name"
                           value={formData.name}
                           onChange={handleChange}
                           className={errors.name ? "border-destructive" : ""}
@@ -235,7 +253,7 @@ const Contact = () => {
                           id="email"
                           name="email"
                           type="email"
-                          placeholder="john@example.com"
+                          placeholder="your@email.com"
                           value={formData.email}
                           onChange={handleChange}
                           className={errors.email ? "border-destructive" : ""}
@@ -256,7 +274,7 @@ const Contact = () => {
                       <Input
                         id="subject"
                         name="subject"
-                        placeholder="Project Inquiry"
+                        placeholder="Project Inquiry / Job Opportunity"
                         value={formData.subject}
                         onChange={handleChange}
                         className={errors.subject ? "border-destructive" : ""}
@@ -276,7 +294,7 @@ const Contact = () => {
                       <Textarea
                         id="message"
                         name="message"
-                        placeholder="Tell me about your project..."
+                        placeholder="Tell me about your project or opportunity..."
                         rows={5}
                         value={formData.message}
                         onChange={handleChange}
