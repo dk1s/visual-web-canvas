@@ -1,57 +1,67 @@
 import { motion } from "framer-motion";
-import { Briefcase, GraduationCap } from "lucide-react";
+import { Briefcase, GraduationCap, Award } from "lucide-react";
 
 const skills = {
   frontend: [
-    { name: "React", level: 95 },
-    { name: "TypeScript", level: 90 },
+    { name: "React", level: 90 },
     { name: "Next.js", level: 85 },
+    { name: "TypeScript", level: 85 },
+    { name: "JavaScript", level: 90 },
     { name: "Tailwind CSS", level: 95 },
-    { name: "Vue.js", level: 75 },
+    { name: "HTML/CSS", level: 95 },
   ],
   backend: [
-    { name: "Node.js", level: 90 },
-    { name: "Python", level: 80 },
-    { name: "PostgreSQL", level: 85 },
-    { name: "GraphQL", level: 75 },
-    { name: "AWS", level: 70 },
+    { name: "Python", level: 75 },
+    { name: "SQL", level: 80 },
+    { name: "Git", level: 85 },
+    { name: "WordPress", level: 70 },
+    { name: "Redux/Zustand", level: 80 },
+    { name: "MS Office", level: 85 },
   ],
 };
 
 const experience = [
   {
-    title: "Senior Full-Stack Developer",
-    company: "Tech Innovators Inc.",
-    period: "2022 - Present",
+    title: "Software Developer Trainee",
+    company: "86 Agency",
+    period: "03/2025 - Present",
     description:
-      "Leading development of enterprise applications, mentoring junior developers, and implementing best practices.",
+      "Building responsive web apps using React, Next.js, TypeScript, and Tailwind CSS with CRUD operations and state management (Redux, Zustand). Contributed to projects: Logyxpress, CricArabia, Cric 11 (Fantasy).",
   },
   {
-    title: "Full-Stack Developer",
-    company: "Digital Solutions Ltd.",
-    period: "2020 - 2022",
+    title: "Salesforce Developer Virtual Internship",
+    company: "Smart Internz",
+    period: "12/2023 - 01/2024",
     description:
-      "Built scalable web applications using React and Node.js. Implemented CI/CD pipelines and microservices architecture.",
+      "8-week internship with hands-on Experimental Learning Program containing Bootcamps. Completed Superset certification.",
   },
   {
-    title: "Frontend Developer",
-    company: "Creative Agency",
-    period: "2019 - 2020",
+    title: "Industrial Training - Telecommunications",
+    company: "DRM Office, Indian Railways",
+    period: "09/2019 - 10/2019",
     description:
-      "Developed responsive websites and web applications. Collaborated with designers to create pixel-perfect interfaces.",
+      "4-week industrial training in Telecommunications at the DRM Office, Katihar. Gained practical experience in railway communication systems.",
   },
 ];
 
 const education = [
   {
-    degree: "M.S. Computer Science",
-    institution: "State University",
-    period: "2017 - 2019",
+    degree: "B.Tech in Electronics & Communication Engineering",
+    institution: "Bihar Engineering University, Araria",
+    period: "12/2021 - 08/2024",
+    grade: "7.71 CGPA",
   },
   {
-    degree: "B.S. Software Engineering",
-    institution: "Tech College",
-    period: "2013 - 2017",
+    degree: "Diploma in Electronics Engineering",
+    institution: "State Board of Technical Education, Katihar",
+    period: "09/2016 - 12/2020",
+    grade: "7.88 CGPA",
+  },
+  {
+    degree: "Matriculation",
+    institution: "Central Board of Secondary Education, Purnea",
+    period: "05/2015 - 05/2016",
+    grade: "9.0 CGPA",
   },
 ];
 
@@ -92,7 +102,7 @@ const Skills = () => {
               className="space-y-6"
             >
               <h3 className="text-2xl font-semibold text-foreground mb-6">
-                Frontend Development
+                Frontend & Web Development
               </h3>
               {skills.frontend.map((skill, index) => (
                 <motion.div
@@ -129,7 +139,7 @@ const Skills = () => {
               className="space-y-6"
             >
               <h3 className="text-2xl font-semibold text-foreground mb-6">
-                Backend Development
+                Tools & Technologies
               </h3>
               {skills.backend.map((skill, index) => (
                 <motion.div
@@ -222,8 +232,14 @@ const Skills = () => {
                     transition={{ delay: 0.1 * index }}
                     className="p-6 rounded-xl bg-card border border-border hover:border-primary/30 transition-colors"
                   >
-                    <div className="text-sm text-primary font-medium mb-1">
-                      {edu.period}
+                    <div className="flex items-center justify-between mb-2">
+                      <div className="text-sm text-primary font-medium">
+                        {edu.period}
+                      </div>
+                      <div className="flex items-center gap-1 text-sm font-semibold text-primary">
+                        <Award className="h-4 w-4" />
+                        {edu.grade}
+                      </div>
                     </div>
                     <h4 className="text-lg font-semibold text-foreground">
                       {edu.degree}

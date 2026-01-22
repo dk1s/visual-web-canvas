@@ -1,48 +1,74 @@
 import { motion } from "framer-motion";
-import { ExternalLink, Github, ArrowUpRight } from "lucide-react";
+import { ExternalLink, Github, ArrowUpRight, Cpu, Globe, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 
 const projects = [
   {
-    title: "E-Commerce Platform",
+    title: "Logyxpress",
     description:
-      "A full-featured online store with real-time inventory, secure payments, and admin dashboard. Built for scalability and performance.",
-    image: "🛒",
-    tags: ["React", "Node.js", "PostgreSQL", "Stripe"],
+      "Logistics and delivery management platform built with modern web technologies. Features CRUD operations, state management, and responsive design.",
+    icon: "📦",
+    tags: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Redux"],
     liveUrl: "#",
     githubUrl: "#",
     featured: true,
+    type: "Professional",
   },
   {
-    title: "Project Management Tool",
+    title: "CricArabia",
     description:
-      "Collaborative workspace for teams with task boards, real-time updates, and comprehensive analytics.",
-    image: "📊",
-    tags: ["TypeScript", "Next.js", "Prisma", "WebSocket"],
+      "Cricket platform for the Arabian region. Built responsive interfaces with real-time data updates and intuitive user experience.",
+    icon: "🏏",
+    tags: ["React", "TypeScript", "Tailwind CSS", "Zustand"],
     liveUrl: "#",
     githubUrl: "#",
     featured: true,
+    type: "Professional",
   },
   {
-    title: "AI Chat Assistant",
+    title: "Cric 11 (Fantasy)",
     description:
-      "Intelligent conversational interface powered by machine learning with context-aware responses.",
-    image: "🤖",
-    tags: ["Python", "React", "OpenAI", "FastAPI"],
+      "Fantasy cricket application with team building, scoring, and leaderboard features. Implemented complex state management and responsive UI.",
+    icon: "🎮",
+    tags: ["React", "Next.js", "TypeScript", "Redux", "Tailwind CSS"],
+    liveUrl: "#",
+    githubUrl: "#",
+    featured: true,
+    type: "Professional",
+  },
+  {
+    title: "Portfolio Website",
+    description:
+      "A responsive personal portfolio website showcasing skills, projects, and achievements. Built with HTML, CSS, and JavaScript.",
+    icon: "🌐",
+    tags: ["HTML", "CSS", "JavaScript", "Responsive Design"],
+    liveUrl: "https://dk1s.github.io/Portfolio/",
+    githubUrl: "https://github.com/dk1s/Portfolio",
+    featured: false,
+    type: "Personal",
+  },
+  {
+    title: "Anti-Sleep Alarm System for Drivers",
+    description:
+      "B.Tech project: Developed an Anti-sleep Alarm system with glasses that detects driver fatigue and alerts to prevent accidents.",
+    icon: "👓",
+    tags: ["IoT", "Electronics", "Sensors", "Safety Systems"],
     liveUrl: "#",
     githubUrl: "#",
     featured: false,
+    type: "Academic",
   },
   {
-    title: "Real Estate Finder",
+    title: "Wireless Mobile Charging",
     description:
-      "Property search platform with advanced filtering, map integration, and virtual tours.",
-    image: "🏠",
-    tags: ["Vue.js", "Firebase", "Google Maps", "Tailwind"],
+      "Diploma project: Developed a wireless charging system enabling efficient and contactless power transfer using electromagnetic induction.",
+    icon: "🔋",
+    tags: ["Electronics", "Electromagnetic Induction", "Power Transfer"],
     liveUrl: "#",
     githubUrl: "#",
     featured: false,
+    type: "Academic",
   },
 ];
 
@@ -68,12 +94,12 @@ const Projects = () => {
               Featured Projects
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              A selection of projects that showcase my skills and passion for building great software.
+              A selection of professional and personal projects that showcase my skills.
             </p>
             <div className="w-20 h-1 bg-primary mx-auto rounded-full mt-4" />
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {projects.map((project, index) => (
               <motion.div
                 key={project.title}
@@ -87,54 +113,69 @@ const Projects = () => {
                 <div className="h-full rounded-2xl border border-border bg-card overflow-hidden hover:border-primary/30 transition-all duration-300 hover:shadow-xl hover:shadow-primary/5">
                   {/* Project Image/Icon */}
                   <div className="aspect-video bg-gradient-to-br from-muted to-muted/50 flex items-center justify-center relative overflow-hidden">
-                    <span className="text-7xl group-hover:scale-110 transition-transform duration-500">
-                      {project.image}
+                    <span className="text-6xl group-hover:scale-110 transition-transform duration-500">
+                      {project.icon}
                     </span>
                     <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/5 transition-colors duration-300" />
                     
-                    {/* Featured badge */}
-                    {project.featured && (
-                      <div className="absolute top-4 left-4">
-                        <Badge className="bg-primary text-primary-foreground">
-                          Featured
-                        </Badge>
-                      </div>
-                    )}
+                    {/* Type badge */}
+                    <div className="absolute top-3 left-3">
+                      <Badge 
+                        className={
+                          project.type === "Professional" 
+                            ? "bg-primary text-primary-foreground" 
+                            : project.type === "Academic"
+                            ? "bg-secondary text-secondary-foreground"
+                            : "bg-muted text-muted-foreground"
+                        }
+                      >
+                        {project.type}
+                      </Badge>
+                    </div>
 
                     {/* Quick links overlay */}
-                    <div className="absolute inset-0 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-background/80 backdrop-blur-sm">
-                      <Button size="sm" variant="secondary" asChild>
-                        <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                          <ExternalLink className="h-4 w-4 mr-2" />
-                          Live Demo
-                        </a>
-                      </Button>
-                      <Button size="sm" variant="outline" asChild>
-                        <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                          <Github className="h-4 w-4 mr-2" />
-                          Code
-                        </a>
-                      </Button>
+                    <div className="absolute inset-0 flex items-center justify-center gap-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-background/80 backdrop-blur-sm">
+                      {project.liveUrl !== "#" && (
+                        <Button size="sm" variant="secondary" asChild>
+                          <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                            <ExternalLink className="h-4 w-4 mr-1" />
+                            Live
+                          </a>
+                        </Button>
+                      )}
+                      {project.githubUrl !== "#" && (
+                        <Button size="sm" variant="outline" asChild>
+                          <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                            <Github className="h-4 w-4 mr-1" />
+                            Code
+                          </a>
+                        </Button>
+                      )}
                     </div>
                   </div>
 
                   {/* Content */}
-                  <div className="p-6">
-                    <div className="flex items-start justify-between mb-3">
-                      <h3 className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors">
+                  <div className="p-5">
+                    <div className="flex items-start justify-between mb-2">
+                      <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors line-clamp-1">
                         {project.title}
                       </h3>
-                      <ArrowUpRight className="h-5 w-5 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" />
+                      <ArrowUpRight className="h-4 w-4 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 group-hover:-translate-y-1 transition-all shrink-0" />
                     </div>
-                    <p className="text-muted-foreground mb-4 line-clamp-2">
+                    <p className="text-sm text-muted-foreground mb-4 line-clamp-2">
                       {project.description}
                     </p>
-                    <div className="flex flex-wrap gap-2">
-                      {project.tags.map((tag) => (
+                    <div className="flex flex-wrap gap-1.5">
+                      {project.tags.slice(0, 4).map((tag) => (
                         <Badge key={tag} variant="secondary" className="text-xs">
                           {tag}
                         </Badge>
                       ))}
+                      {project.tags.length > 4 && (
+                        <Badge variant="secondary" className="text-xs">
+                          +{project.tags.length - 4}
+                        </Badge>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -150,7 +191,7 @@ const Projects = () => {
             transition={{ delay: 0.4 }}
           >
             <Button variant="outline" size="lg" asChild>
-              <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+              <a href="https://github.com/dk1s" target="_blank" rel="noopener noreferrer">
                 <Github className="mr-2 h-5 w-5" />
                 View All Projects on GitHub
               </a>
