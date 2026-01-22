@@ -66,7 +66,7 @@ const Hero = () => {
           >
             Hi, I'm{" "}
             <span className="text-primary relative">
-              John Doe
+              Deepak Kumar
               <motion.span
                 className="absolute -bottom-2 left-0 w-full h-1 bg-primary/30 rounded-full"
                 initial={{ scaleX: 0 }}
@@ -82,8 +82,8 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.6 }}
           >
-            Full-Stack Developer crafting elegant solutions to complex problems.
-            Specializing in modern web technologies and scalable applications.
+            B.Tech Computer Science Student & Full-Stack Developer passionate about
+            crafting innovative solutions. Specializing in web development and AI/ML technologies.
           </motion.p>
 
           <motion.div

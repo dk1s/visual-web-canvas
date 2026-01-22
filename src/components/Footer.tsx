@@ -24,7 +24,7 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             {/* Logo/Name */}
             <div className="text-2xl font-bold text-foreground">
-              John<span className="text-primary">.</span>Doe
+              Deepak<span className="text-primary">.</span>Kumar
             </div>
 
             {/* Social Links */}
@@ -46,8 +46,8 @@ const Footer = () => {
             {/* Copyright */}
             <div className="flex items-center gap-2 text-sm text-muted-foreground">
               <span>© {currentYear} Made with</span>
-              <Heart className="h-4 w-4 text-primary fill-primary" />
-              <span>by John Doe</span>
+              <Heart className="h-4 w-4 text-primary fill-primary animate-pulse" />
+              <span>by Deepak Kumar</span>
             </div>
           </div>
         </motion.div>
