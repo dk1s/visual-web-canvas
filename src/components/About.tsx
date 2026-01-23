@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Code2, Lightbulb, Rocket, Users, Brain, Target } from "lucide-react";
+import profileImage from "@/assets/deepak-profile.jpg";
 
 const values = [
   {
@@ -65,10 +66,12 @@ const About = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
             >
               <div className="relative">
-                <div className="aspect-square rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 p-8 border border-primary/10">
-                  <div className="w-full h-full rounded-xl bg-muted/50 flex items-center justify-center overflow-hidden">
-                    <div className="text-8xl">👨‍💻</div>
-                  </div>
+                <div className="aspect-square rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 p-4 border border-primary/10 overflow-hidden">
+                  <img
+                    src={profileImage}
+                    alt="Deepak Kumar"
+                    className="w-full h-full object-cover rounded-xl"
+                  />
                 </div>
                 {/* Decorative elements */}
                 <div className="absolute -top-4 -right-4 w-24 h-24 bg-primary/10 rounded-full blur-2xl" />
