@@ -120,7 +120,7 @@ const Hero = () => {
               <a href="#contact">Get in Touch</a>
             </Button>
             <Button size="lg" variant="secondary" asChild>
-              <a href="https://dk1s.github.io/Portfolio/" target="_blank" rel="noopener noreferrer">
+              <a href="/DeepakKumar_Resume.pdf" target="_blank" rel="noopener noreferrer" download>
                 <Download className="mr-2 h-4 w-4" />
                 Resume
               </a>
