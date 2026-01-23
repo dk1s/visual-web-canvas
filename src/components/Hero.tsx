@@ -133,28 +133,34 @@ const Hero = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.7, duration: 0.6 }}
           >
-            <a
+            <motion.a
               href="https://github.com/dk1s"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 rounded-full bg-muted/50 hover:bg-muted text-muted-foreground hover:text-foreground transition-all hover:scale-110"
+              className="p-3 rounded-full bg-muted/50 hover:bg-muted text-muted-foreground hover:text-foreground transition-all duration-300"
+              whileHover={{ scale: 1.15, y: -2 }}
+              whileTap={{ scale: 0.95 }}
             >
               <Github className="h-5 w-5" />
-            </a>
-            <a
-              href="https://linkedin.com"
+            </motion.a>
+            <motion.a
+              href="https://www.linkedin.com/in/deepak-kumar-8084387128-ece"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 rounded-full bg-muted/50 hover:bg-muted text-muted-foreground hover:text-foreground transition-all hover:scale-110"
+              className="p-3 rounded-full bg-muted/50 hover:bg-muted text-muted-foreground hover:text-foreground transition-all duration-300"
+              whileHover={{ scale: 1.15, y: -2 }}
+              whileTap={{ scale: 0.95 }}
             >
               <Linkedin className="h-5 w-5" />
-            </a>
-            <a
-              href="mailto:deepak@example.com"
-              className="p-3 rounded-full bg-muted/50 hover:bg-muted text-muted-foreground hover:text-foreground transition-all hover:scale-110"
+            </motion.a>
+            <motion.a
+              href="mailto:deepakkumarplacee@gmail.com"
+              className="p-3 rounded-full bg-muted/50 hover:bg-muted text-muted-foreground hover:text-foreground transition-all duration-300"
+              whileHover={{ scale: 1.15, y: -2 }}
+              whileTap={{ scale: 0.95 }}
             >
               <Mail className="h-5 w-5" />
-            </a>
+            </motion.a>
           </motion.div>
         </motion.div>
       </div>

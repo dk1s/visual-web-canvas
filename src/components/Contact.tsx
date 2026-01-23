@@ -18,8 +18,8 @@ const contactInfo = [
   {
     icon: Mail,
     label: "Email",
-    value: "deepakkumar@email.com",
-    href: "mailto:deepakkumar@email.com",
+    value: "deepakkumarplacee@gmail.com",
+    href: "mailto:deepakkumarplacee@gmail.com",
   },
   {
     icon: MapPin,
@@ -36,8 +36,8 @@ const contactInfo = [
   {
     icon: Linkedin,
     label: "LinkedIn",
-    value: "Connect with me",
-    href: "https://linkedin.com",
+    value: "Deepak Kumar",
+    href: "https://www.linkedin.com/in/deepak-kumar-8084387128-ece",
   },
 ];
 
