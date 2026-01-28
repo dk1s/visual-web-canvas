@@ -36,8 +36,8 @@ const certifications = [
 
 const About = () => {
   return (
-    <section id="about" className="py-16 sm:py-20 md:py-24 bg-muted/30">
-      <div className="container mx-auto px-4 sm:px-6">
+    <section id="about" className="py-24 bg-muted/30">
+      <div className="container mx-auto px-6">
         <motion.div
           className="max-w-6xl mx-auto"
           initial={{ opacity: 0 }}
@@ -46,36 +46,36 @@ const About = () => {
           transition={{ duration: 0.6 }}
         >
           <motion.div
-            className="text-center mb-10 sm:mb-12 md:mb-16 px-2"
+            className="text-center mb-16"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-3 sm:mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
               About Me
             </h2>
-            <div className="w-16 sm:w-20 h-1 bg-primary mx-auto rounded-full" />
+            <div className="w-20 h-1 bg-primary mx-auto rounded-full" />
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-8 sm:gap-10 md:gap-12 items-center mb-10 sm:mb-12 md:mb-16">
+          <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <div className="relative max-w-sm mx-auto md:max-w-none">
-                <div className="aspect-square rounded-xl sm:rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 p-3 sm:p-4 border border-primary/10 overflow-hidden">
+              <div className="relative">
+                <div className="aspect-square rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 p-4 border border-primary/10 overflow-hidden">
                   <img
                     src={profileImage}
                     alt="Deepak Kumar"
-                    className="w-full h-full object-cover rounded-lg sm:rounded-xl"
+                    className="w-full h-full object-cover rounded-xl"
                   />
                 </div>
                 {/* Decorative elements */}
-                <div className="absolute -top-4 -right-4 w-20 sm:w-24 h-20 sm:h-24 bg-primary/10 rounded-full blur-2xl" />
-                <div className="absolute -bottom-4 -left-4 w-24 sm:w-32 h-24 sm:h-32 bg-primary/5 rounded-full blur-2xl" />
+                <div className="absolute -top-4 -right-4 w-24 h-24 bg-primary/10 rounded-full blur-2xl" />
+                <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-primary/5 rounded-full blur-2xl" />
               </div>
             </motion.div>
 
@@ -84,33 +84,33 @@ const About = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="space-y-4 sm:space-y-6"
+              className="space-y-6"
             >
-              <p className="text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed">
+              <p className="text-lg text-muted-foreground leading-relaxed">
                 I'm a <span className="text-primary font-semibold">Software Developer Trainee</span> at 86 Agency, 
                 where I build responsive web applications using React, Next.js, TypeScript, and Tailwind CSS. 
                 I've contributed to projects like <span className="text-foreground font-medium">Logyxpress, CricArabia, and Cric 11 (Fantasy)</span>.
               </p>
-              <p className="text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed">
+              <p className="text-lg text-muted-foreground leading-relaxed">
                 With a <span className="text-foreground font-medium">B.Tech in Electronics & Communication Engineering</span> from 
                 Bihar Engineering University (7.71 CGPA), I bring a strong analytical foundation to software development.
                 I'm proficient in state management with Redux and Zustand, and I love building CRUD applications.
               </p>
-              <p className="text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed">
+              <p className="text-lg text-muted-foreground leading-relaxed">
                 When I'm not coding, you'll find me contributing to open-source projects, 
                 playing chess, or exploring robotics projects. I'm always eager to learn and 
                 take on new challenges.
               </p>
               
-              <div className="flex flex-wrap gap-2 pt-2 sm:pt-4">
-                <span className="px-2.5 py-1 sm:px-3 bg-primary/10 text-primary rounded-full text-xs sm:text-sm">🌐 English (Proficient)</span>
-                <span className="px-2.5 py-1 sm:px-3 bg-primary/10 text-primary rounded-full text-xs sm:text-sm">🇮🇳 Hindi (Native)</span>
+              <div className="flex flex-wrap gap-2 pt-4">
+                <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">🌐 English (Proficient)</span>
+                <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">🇮🇳 Hindi (Native)</span>
               </div>
             </motion.div>
           </div>
 
           {/* Values */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6 mb-10 sm:mb-12 md:mb-16">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
             {values.map((value, index) => (
               <motion.div
                 key={value.title}
@@ -119,15 +119,15 @@ const About = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.1 * index }}
                 whileHover={{ y: -5 }}
-                className="p-4 sm:p-5 md:p-6 rounded-xl bg-card border border-border hover:border-primary/30 transition-colors group"
+                className="p-6 rounded-xl bg-card border border-border hover:border-primary/30 transition-colors group"
               >
-                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-3 sm:mb-4 group-hover:bg-primary/20 transition-colors">
-                  <value.icon className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
+                <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+                  <value.icon className="h-6 w-6 text-primary" />
                 </div>
-                <h3 className="text-sm sm:text-base md:text-lg font-semibold text-foreground mb-1 sm:mb-2">
+                <h3 className="text-lg font-semibold text-foreground mb-2">
                   {value.title}
                 </h3>
-                <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">{value.description}</p>
+                <p className="text-sm text-muted-foreground">{value.description}</p>
               </motion.div>
             ))}
           </div>
@@ -139,10 +139,10 @@ const About = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h3 className="text-xl sm:text-2xl font-semibold text-foreground text-center mb-6 sm:mb-8">
+            <h3 className="text-2xl font-semibold text-foreground text-center mb-8">
               Certifications & Training
             </h3>
-            <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {certifications.map((cert, index) => (
                 <motion.div
                   key={cert.name}
@@ -150,10 +150,10 @@ const About = () => {
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.05 * index }}
-                  className="p-3 sm:p-4 rounded-lg bg-card border border-border hover:border-primary/30 transition-all hover:shadow-lg"
+                  className="p-4 rounded-lg bg-card border border-border hover:border-primary/30 transition-all hover:shadow-lg"
                 >
-                  <div className="text-xs sm:text-sm font-medium text-foreground leading-tight">{cert.name}</div>
-                  <div className="text-[10px] sm:text-xs text-muted-foreground mt-1">By: {cert.issuer}</div>
+                  <div className="text-sm font-medium text-foreground">{cert.name}</div>
+                  <div className="text-xs text-muted-foreground mt-1">By: {cert.issuer}</div>
                 </motion.div>
               ))}
             </div>
