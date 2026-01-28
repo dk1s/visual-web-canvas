@@ -64,22 +64,22 @@ const Hero = () => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.2, duration: 0.5 }}
           >
-            <span className="px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium border border-primary/20">
+            <span className="px-3 py-1.5 sm:px-4 sm:py-2 bg-primary/10 text-primary rounded-full text-xs sm:text-sm font-medium border border-primary/20">
               🚀 Software Developer • Open to Opportunities
             </span>
           </motion.div>
 
           <motion.h1
-            className="text-5xl md:text-7xl font-bold text-foreground mb-6 leading-tight"
+            className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-foreground mb-4 sm:mb-6 leading-tight px-2"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.6 }}
           >
             Hi, I'm{" "}
-            <span className="text-primary relative">
+            <span className="text-primary relative inline-block">
               Deepak Kumar
               <motion.span
-                className="absolute -bottom-2 left-0 w-full h-1 bg-primary/30 rounded-full"
+                className="absolute -bottom-1 sm:-bottom-2 left-0 w-full h-0.5 sm:h-1 bg-primary/30 rounded-full"
                 initial={{ scaleX: 0 }}
                 animate={{ scaleX: 1 }}
                 transition={{ delay: 0.8, duration: 0.6 }}
@@ -88,7 +88,7 @@ const Hero = () => {
           </motion.h1>
 
           <motion.p
-            className="text-xl md:text-2xl text-muted-foreground mb-4 max-w-2xl mx-auto leading-relaxed"
+            className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground mb-3 sm:mb-4 max-w-2xl mx-auto leading-relaxed px-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.6 }}
@@ -97,7 +97,7 @@ const Hero = () => {
           </motion.p>
 
           <motion.p
-            className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto"
+            className="text-sm sm:text-base md:text-lg text-muted-foreground mb-6 sm:mb-8 max-w-2xl mx-auto px-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.6 }}
@@ -107,19 +107,19 @@ const Hero = () => {
           </motion.p>
 
           <motion.div
-            className="flex flex-wrap items-center justify-center gap-4 mb-12"
+            className="flex flex-col xs:flex-row flex-wrap items-center justify-center gap-3 sm:gap-4 mb-8 sm:mb-12 px-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.6 }}
           >
-            <Button size="lg" onClick={scrollToProjects} className="group">
+            <Button size="default" className="w-full xs:w-auto group" onClick={scrollToProjects}>
               View My Work
               <ArrowDown className="ml-2 h-4 w-4 group-hover:translate-y-1 transition-transform" />
             </Button>
-            <Button size="lg" variant="outline" asChild>
+            <Button size="default" variant="outline" className="w-full xs:w-auto" asChild>
               <a href="#contact">Get in Touch</a>
             </Button>
-            <Button size="lg" variant="secondary" asChild>
+            <Button size="default" variant="secondary" className="w-full xs:w-auto" asChild>
               <a href="/DeepakKumar_Resume.pdf" target="_blank" rel="noopener noreferrer" download>
                 <Download className="mr-2 h-4 w-4" />
                 Resume

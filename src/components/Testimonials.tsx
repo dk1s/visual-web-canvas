@@ -43,8 +43,8 @@ const testimonials = [
 
 const Testimonials = () => {
   return (
-    <section id="testimonials" className="py-24 bg-background">
-      <div className="container mx-auto px-6">
+    <section id="testimonials" className="py-16 sm:py-20 md:py-24 bg-background">
+      <div className="container mx-auto px-4 sm:px-6">
         <motion.div
           className="max-w-6xl mx-auto"
           initial={{ opacity: 0 }}
@@ -53,22 +53,22 @@ const Testimonials = () => {
           transition={{ duration: 0.6 }}
         >
           <motion.div
-            className="text-center mb-16"
+            className="text-center mb-10 sm:mb-12 md:mb-16 px-2"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-3 sm:mb-4">
               Client Testimonials
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
               Don't just take my word for it - here's what my clients have to say about working with me.
             </p>
-            <div className="w-20 h-1 bg-primary mx-auto rounded-full mt-4" />
+            <div className="w-16 sm:w-20 h-1 bg-primary mx-auto rounded-full mt-3 sm:mt-4" />
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
             {testimonials.map((testimonial, index) => (
               <motion.div
                 key={testimonial.name}
@@ -79,14 +79,14 @@ const Testimonials = () => {
                 whileHover={{ y: -5 }}
                 className="group"
               >
-                <div className="h-full p-8 rounded-2xl bg-card border border-border hover:border-primary/30 transition-all duration-300 hover:shadow-xl hover:shadow-primary/5 relative overflow-hidden">
+                <div className="h-full p-5 sm:p-6 md:p-8 rounded-xl sm:rounded-2xl bg-card border border-border hover:border-primary/30 transition-all duration-300 hover:shadow-xl hover:shadow-primary/5 relative overflow-hidden">
                   {/* Quote Icon */}
-                  <div className="absolute top-6 right-6 opacity-10 group-hover:opacity-20 transition-opacity">
-                    <Quote className="h-16 w-16 text-primary" />
+                  <div className="absolute top-4 right-4 sm:top-6 sm:right-6 opacity-10 group-hover:opacity-20 transition-opacity">
+                    <Quote className="h-10 w-10 sm:h-12 sm:w-12 md:h-16 md:w-16 text-primary" />
                   </div>
 
                   {/* Rating Stars */}
-                  <div className="flex gap-1 mb-4">
+                  <div className="flex gap-0.5 sm:gap-1 mb-3 sm:mb-4">
                     {Array.from({ length: testimonial.rating }).map((_, i) => (
                       <motion.div
                         key={i}
@@ -95,29 +95,29 @@ const Testimonials = () => {
                         viewport={{ once: true }}
                         transition={{ delay: 0.3 + 0.1 * i }}
                       >
-                        <Star className="h-5 w-5 fill-primary text-primary" />
+                        <Star className="h-4 w-4 sm:h-5 sm:w-5 fill-primary text-primary" />
                       </motion.div>
                     ))}
                   </div>
 
                   {/* Content */}
-                  <p className="text-muted-foreground mb-6 leading-relaxed relative z-10">
+                  <p className="text-xs sm:text-sm md:text-base text-muted-foreground mb-4 sm:mb-6 leading-relaxed relative z-10">
                     "{testimonial.content}"
                   </p>
 
                   {/* Author */}
-                  <div className="flex items-center gap-4">
-                    <Avatar className="h-12 w-12 border-2 border-primary/20">
+                  <div className="flex items-center gap-3 sm:gap-4">
+                    <Avatar className="h-10 w-10 sm:h-12 sm:w-12 border-2 border-primary/20">
                       <AvatarImage src={testimonial.avatar} alt={testimonial.name} />
-                      <AvatarFallback className="bg-primary/10 text-primary font-semibold">
+                      <AvatarFallback className="bg-primary/10 text-primary font-semibold text-xs sm:text-sm">
                         {testimonial.initials}
                       </AvatarFallback>
                     </Avatar>
                     <div>
-                      <h4 className="font-semibold text-foreground">
+                      <h4 className="font-semibold text-sm sm:text-base text-foreground">
                         {testimonial.name}
                       </h4>
-                      <p className="text-sm text-muted-foreground">
+                      <p className="text-xs sm:text-sm text-muted-foreground">
                         {testimonial.role}
                       </p>
                     </div>
@@ -129,7 +129,7 @@ const Testimonials = () => {
 
           {/* Stats Section */}
           <motion.div
-            className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16"
+            className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 md:gap-6 mt-10 sm:mt-12 md:mt-16"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -147,12 +147,12 @@ const Testimonials = () => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.4 + 0.1 * index }}
-                className="text-center p-6 rounded-xl bg-muted/50 border border-border hover:border-primary/30 transition-colors"
+                className="text-center p-4 sm:p-5 md:p-6 rounded-xl bg-muted/50 border border-border hover:border-primary/30 transition-colors"
               >
-                <div className="text-3xl md:text-4xl font-bold text-primary mb-2">
+                <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary mb-1 sm:mb-2">
                   {stat.value}
                 </div>
-                <div className="text-sm text-muted-foreground">{stat.label}</div>
+                <div className="text-xs sm:text-sm text-muted-foreground">{stat.label}</div>
               </motion.div>
             ))}
           </motion.div>

@@ -11,8 +11,8 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="py-12 bg-muted/30 border-t border-border">
-      <div className="container mx-auto px-6">
+    <footer className="py-8 sm:py-10 md:py-12 bg-muted/30 border-t border-border">
+      <div className="container mx-auto px-4 sm:px-6">
         <motion.div
           className="max-w-6xl mx-auto"
           initial={{ opacity: 0, y: 20 }}
@@ -20,14 +20,14 @@ const Footer = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="flex flex-col items-center gap-4 sm:gap-6 md:flex-row md:justify-between">
             {/* Logo/Name */}
-            <div className="text-2xl font-bold text-foreground">
+            <div className="text-xl sm:text-2xl font-bold text-foreground">
               Deepak<span className="text-primary">.</span>Kumar
             </div>
 
             {/* Social Links */}
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-3 sm:gap-4">
               {socialLinks.map((social) => (
                 <a
                   key={social.label}
@@ -37,15 +37,15 @@ const Footer = () => {
                   className="p-2 rounded-full bg-muted hover:bg-primary/10 text-muted-foreground hover:text-primary transition-all hover:scale-110"
                   aria-label={social.label}
                 >
-                  <social.icon className="h-5 w-5" />
+                  <social.icon className="h-4 w-4 sm:h-5 sm:w-5" />
                 </a>
               ))}
             </div>
 
             {/* Copyright */}
-            <div className="flex items-center gap-2 text-sm text-muted-foreground">
+            <div className="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm text-muted-foreground text-center">
               <span>© {currentYear} Made with</span>
-              <Heart className="h-4 w-4 text-primary fill-primary animate-pulse" />
+              <Heart className="h-3 w-3 sm:h-4 sm:w-4 text-primary fill-primary animate-pulse" />
               <span>by Deepak Kumar</span>
             </div>
           </div>
