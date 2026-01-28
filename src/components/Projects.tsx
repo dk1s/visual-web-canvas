@@ -141,7 +141,7 @@ const itemVariants = {
 
 const Projects = () => {
   return (
-    <section id="projects" className="py-24 bg-background">
+    <section id="projects" className="py-16 sm:py-20 md:py-24 bg-background">
       <div className="container mx-auto px-4 sm:px-6">
         <motion.div
           className="max-w-7xl mx-auto"
@@ -151,23 +151,23 @@ const Projects = () => {
           transition={{ duration: 0.6 }}
         >
           <motion.div
-            className="text-center mb-16"
+            className="text-center mb-10 sm:mb-12 md:mb-16 px-2"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-3 sm:mb-4">
               Featured Projects
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
               Professional projects showcasing React, Next.js, API integration, state management (Redux, Zustand), and real-time features with Socket.IO.
             </p>
-            <div className="w-20 h-1 bg-primary mx-auto rounded-full mt-4" />
+            <div className="w-16 sm:w-20 h-1 bg-primary mx-auto rounded-full mt-3 sm:mt-4" />
           </motion.div>
 
           <motion.div
-            className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
@@ -180,11 +180,11 @@ const Projects = () => {
                 whileHover={{ y: -8, transition: { type: "spring", stiffness: 300, damping: 20 } }}
                 className="group relative"
               >
-                <div className="h-full rounded-2xl border border-border bg-card overflow-hidden hover:border-primary/40 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10">
+                <div className="h-full rounded-xl sm:rounded-2xl border border-border bg-card overflow-hidden hover:border-primary/40 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10">
                   {/* Project Image/Icon */}
-                  <div className="aspect-[16/10] bg-gradient-to-br from-muted via-muted/80 to-muted/50 flex items-center justify-center relative overflow-hidden">
+                  <div className="aspect-[16/9] sm:aspect-[16/10] bg-gradient-to-br from-muted via-muted/80 to-muted/50 flex items-center justify-center relative overflow-hidden">
                     <motion.span
-                      className="text-5xl md:text-6xl"
+                      className="text-4xl sm:text-5xl md:text-6xl"
                       whileHover={{ scale: 1.2, rotate: 5 }}
                       transition={{ type: "spring", stiffness: 300 }}
                     >
@@ -193,9 +193,9 @@ const Projects = () => {
                     <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/5 transition-colors duration-500" />
                     
                     {/* Type badge */}
-                    <div className="absolute top-3 left-3">
+                    <div className="absolute top-2 left-2 sm:top-3 sm:left-3">
                       <Badge 
-                        className={`transition-all duration-300 ${
+                        className={`text-xs transition-all duration-300 ${
                           project.type === "Professional" 
                             ? "bg-primary text-primary-foreground shadow-lg shadow-primary/20" 
                             : project.type === "Academic"
@@ -246,9 +246,9 @@ const Projects = () => {
                   </div>
 
                   {/* Content */}
-                  <div className="p-5">
+                  <div className="p-4 sm:p-5">
                     <div className="flex items-start justify-between mb-2">
-                      <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors duration-300 line-clamp-1">
+                      <h3 className="text-base sm:text-lg font-semibold text-foreground group-hover:text-primary transition-colors duration-300 line-clamp-1">
                         {project.title}
                       </h3>
                       <motion.div
@@ -259,7 +259,7 @@ const Projects = () => {
                       </motion.div>
                     </div>
                     
-                    <p className="text-sm text-muted-foreground mb-4 line-clamp-3 leading-relaxed">
+                    <p className="text-xs sm:text-sm text-muted-foreground mb-3 sm:mb-4 line-clamp-3 leading-relaxed">
                       {project.description}
                     </p>
 
