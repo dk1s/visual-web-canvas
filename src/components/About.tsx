@@ -87,7 +87,7 @@ const About = () => {
               className="space-y-6"
             >
               <p className="text-lg text-muted-foreground leading-relaxed">
-                I'm a <span className="text-primary font-semibold">Software Developer Trainee</span> at 86 Agency, 
+                I'm a <span className="text-primary font-semibold">Software Developer</span> at 86 Agency, 
                 where I build responsive web applications using React, Next.js, TypeScript, and Tailwind CSS. 
                 I've contributed to projects like <span className="text-foreground font-medium">Logyxpress, CricArabia, and Cric 11 (Fantasy)</span>.
               </p>

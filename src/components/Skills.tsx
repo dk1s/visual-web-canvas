@@ -22,7 +22,7 @@ const skills = {
 
 const experience = [
   {
-    title: "Software Developer Trainee",
+    title: "Software Developer",
     company: "86 Agency",
     period: "03/2025 - Present",
     description:

@@ -93,7 +93,7 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.6 }}
           >
-            Software Developer Trainee at <span className="text-primary font-semibold">86 Agency</span>
+            Software Developer at <span className="text-primary font-semibold">86 Agency</span>
           </motion.p>
 
           <motion.p
