@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
+import { usePortfolio } from "@/contexts/PortfolioContext";
 import { z } from "zod";
 
 const contactSchema = z.object({
@@ -14,34 +15,9 @@ const contactSchema = z.object({
   message: z.string().trim().min(10, "Message must be at least 10 characters").max(1000, "Message is too long"),
 });
 
-const contactInfo = [
-  {
-    icon: Mail,
-    label: "Email",
-    value: "deepakkumarplacee@gmail.com",
-    href: "mailto:deepakkumarplacee@gmail.com",
-  },
-  {
-    icon: MapPin,
-    label: "Location",
-    value: "Bihar, India",
-    href: null,
-  },
-  {
-    icon: Github,
-    label: "GitHub",
-    value: "github.com/dk1s",
-    href: "https://github.com/dk1s",
-  },
-  {
-    icon: Linkedin,
-    label: "LinkedIn",
-    value: "Deepak Kumar",
-    href: "https://www.linkedin.com/in/deepak-kumar-8084387128-ece",
-  },
-];
-
 const Contact = () => {
+  const { data } = usePortfolio();
+  const { contact, hero } = data;
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -52,6 +28,33 @@ const Contact = () => {
     message: "",
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
+
+  const contactInfo = [
+    {
+      icon: Mail,
+      label: "Email",
+      value: contact.email,
+      href: `mailto:${contact.email}`,
+    },
+    {
+      icon: MapPin,
+      label: "Location",
+      value: contact.location,
+      href: null,
+    },
+    {
+      icon: Github,
+      label: "GitHub",
+      value: contact.github,
+      href: `https://${contact.github}`,
+    },
+    {
+      icon: Linkedin,
+      label: "LinkedIn",
+      value: contact.linkedin,
+      href: hero.linkedinUrl,
+    },
+  ];
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -96,8 +99,8 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-24 bg-background">
-      <div className="container mx-auto px-6">
+    <section id="contact" className="py-16 sm:py-24 bg-background">
+      <div className="container mx-auto px-4 sm:px-6">
         <motion.div
           className="max-w-6xl mx-auto"
           initial={{ opacity: 0 }}
@@ -106,41 +109,41 @@ const Contact = () => {
           transition={{ duration: 0.6 }}
         >
           <motion.div
-            className="text-center mb-16"
+            className="text-center mb-10 sm:mb-16"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4">
               Get In Touch
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-sm sm:text-lg text-muted-foreground max-w-2xl mx-auto">
               Have a project in mind or want to collaborate? I'd love to hear from you.
             </p>
             <div className="w-20 h-1 bg-primary mx-auto rounded-full mt-4" />
           </motion.div>
 
-          <div className="grid lg:grid-cols-5 gap-12">
+          <div className="grid lg:grid-cols-5 gap-8 lg:gap-12">
             {/* Contact Info */}
             <motion.div
-              className="lg:col-span-2 space-y-8"
+              className="lg:col-span-2 space-y-6 sm:space-y-8"
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
               <div>
-                <h3 className="text-2xl font-semibold text-foreground mb-4">
+                <h3 className="text-xl sm:text-2xl font-semibold text-foreground mb-3 sm:mb-4">
                   Let's work together
                 </h3>
-                <p className="text-muted-foreground">
+                <p className="text-sm sm:text-base text-muted-foreground">
                   I'm always open to discussing new projects, creative ideas, or
                   opportunities to be part of your team. Currently open to full-time positions.
                 </p>
               </div>
 
-              <div className="space-y-4">
+              <div className="space-y-3 sm:space-y-4">
                 {contactInfo.map((info, index) => (
                   <motion.div
                     key={info.label}
@@ -148,13 +151,13 @@ const Contact = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.1 * index }}
-                    className="flex items-center gap-4 p-3 rounded-lg hover:bg-muted/50 transition-colors"
+                    className="flex items-center gap-3 sm:gap-4 p-2 sm:p-3 rounded-lg hover:bg-muted/50 transition-colors"
                   >
-                    <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
-                      <info.icon className="h-5 w-5 text-primary" />
+                    <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                      <info.icon className="h-4 w-4 sm:h-5 sm:w-5 text-primary" />
                     </div>
-                    <div>
-                      <div className="text-xs text-muted-foreground uppercase tracking-wider">
+                    <div className="min-w-0">
+                      <div className="text-[10px] sm:text-xs text-muted-foreground uppercase tracking-wider">
                         {info.label}
                       </div>
                       {info.href ? (
@@ -162,12 +165,12 @@ const Contact = () => {
                           href={info.href}
                           target={info.href.startsWith("http") ? "_blank" : undefined}
                           rel={info.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                          className="text-sm font-medium text-foreground hover:text-primary transition-colors"
+                          className="text-xs sm:text-sm font-medium text-foreground hover:text-primary transition-colors truncate block"
                         >
                           {info.value}
                         </a>
                       ) : (
-                        <span className="text-sm font-medium text-foreground">
+                        <span className="text-xs sm:text-sm font-medium text-foreground">
                           {info.value}
                         </span>
                       )}
@@ -181,13 +184,13 @@ const Contact = () => {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="p-4 rounded-xl bg-muted/30 border border-border"
+                className="p-3 sm:p-4 rounded-xl bg-muted/30 border border-border"
               >
-                <h4 className="text-sm font-semibold text-foreground mb-2">When I'm not coding</h4>
-                <div className="flex flex-wrap gap-2">
-                  <span className="text-xs px-2 py-1 bg-primary/10 text-primary rounded-full">♟️ Chess</span>
-                  <span className="text-xs px-2 py-1 bg-primary/10 text-primary rounded-full">🤖 Robotics</span>
-                  <span className="text-xs px-2 py-1 bg-primary/10 text-primary rounded-full">🔓 Open Source</span>
+                <h4 className="text-xs sm:text-sm font-semibold text-foreground mb-2">When I'm not coding</h4>
+                <div className="flex flex-wrap gap-1.5 sm:gap-2">
+                  <span className="text-[10px] sm:text-xs px-2 py-1 bg-primary/10 text-primary rounded-full">♟️ Chess</span>
+                  <span className="text-[10px] sm:text-xs px-2 py-1 bg-primary/10 text-primary rounded-full">🤖 Robotics</span>
+                  <span className="text-[10px] sm:text-xs px-2 py-1 bg-primary/10 text-primary rounded-full">🔓 Open Source</span>
                 </div>
               </motion.div>
             </motion.div>
@@ -202,31 +205,31 @@ const Contact = () => {
             >
               <form
                 onSubmit={handleSubmit}
-                className="p-8 rounded-2xl bg-card border border-border"
+                className="p-5 sm:p-8 rounded-xl sm:rounded-2xl bg-card border border-border"
               >
                 {isSubmitted ? (
                   <motion.div
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    className="flex flex-col items-center justify-center py-12 text-center"
+                    className="flex flex-col items-center justify-center py-8 sm:py-12 text-center"
                   >
-                    <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-4">
-                      <CheckCircle className="h-8 w-8 text-primary" />
+                    <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-primary/10 flex items-center justify-center mb-3 sm:mb-4">
+                      <CheckCircle className="h-6 w-6 sm:h-8 sm:w-8 text-primary" />
                     </div>
-                    <h4 className="text-xl font-semibold text-foreground mb-2">
+                    <h4 className="text-lg sm:text-xl font-semibold text-foreground mb-2">
                       Message Sent!
                     </h4>
-                    <p className="text-muted-foreground">
+                    <p className="text-sm sm:text-base text-muted-foreground">
                       Thank you for reaching out. I'll respond shortly.
                     </p>
                   </motion.div>
                 ) : (
-                  <div className="space-y-6">
-                    <div className="grid sm:grid-cols-2 gap-6">
-                      <div className="space-y-2">
+                  <div className="space-y-4 sm:space-y-6">
+                    <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
+                      <div className="space-y-1.5 sm:space-y-2">
                         <label
                           htmlFor="name"
-                          className="text-sm font-medium text-foreground"
+                          className="text-xs sm:text-sm font-medium text-foreground"
                         >
                           Name
                         </label>
@@ -236,16 +239,16 @@ const Contact = () => {
                           placeholder="Your name"
                           value={formData.name}
                           onChange={handleChange}
-                          className={errors.name ? "border-destructive" : ""}
+                          className={`text-sm ${errors.name ? "border-destructive" : ""}`}
                         />
                         {errors.name && (
-                          <p className="text-sm text-destructive">{errors.name}</p>
+                          <p className="text-xs sm:text-sm text-destructive">{errors.name}</p>
                         )}
                       </div>
-                      <div className="space-y-2">
+                      <div className="space-y-1.5 sm:space-y-2">
                         <label
                           htmlFor="email"
-                          className="text-sm font-medium text-foreground"
+                          className="text-xs sm:text-sm font-medium text-foreground"
                         >
                           Email
                         </label>
@@ -256,18 +259,18 @@ const Contact = () => {
                           placeholder="your@email.com"
                           value={formData.email}
                           onChange={handleChange}
-                          className={errors.email ? "border-destructive" : ""}
+                          className={`text-sm ${errors.email ? "border-destructive" : ""}`}
                         />
                         {errors.email && (
-                          <p className="text-sm text-destructive">{errors.email}</p>
+                          <p className="text-xs sm:text-sm text-destructive">{errors.email}</p>
                         )}
                       </div>
                     </div>
 
-                    <div className="space-y-2">
+                    <div className="space-y-1.5 sm:space-y-2">
                       <label
                         htmlFor="subject"
-                        className="text-sm font-medium text-foreground"
+                        className="text-xs sm:text-sm font-medium text-foreground"
                       >
                         Subject
                       </label>
@@ -277,17 +280,17 @@ const Contact = () => {
                         placeholder="Project Inquiry / Job Opportunity"
                         value={formData.subject}
                         onChange={handleChange}
-                        className={errors.subject ? "border-destructive" : ""}
+                        className={`text-sm ${errors.subject ? "border-destructive" : ""}`}
                       />
                       {errors.subject && (
-                        <p className="text-sm text-destructive">{errors.subject}</p>
+                        <p className="text-xs sm:text-sm text-destructive">{errors.subject}</p>
                       )}
                     </div>
 
-                    <div className="space-y-2">
+                    <div className="space-y-1.5 sm:space-y-2">
                       <label
                         htmlFor="message"
-                        className="text-sm font-medium text-foreground"
+                        className="text-xs sm:text-sm font-medium text-foreground"
                       >
                         Message
                       </label>
@@ -295,13 +298,13 @@ const Contact = () => {
                         id="message"
                         name="message"
                         placeholder="Tell me about your project or opportunity..."
-                        rows={5}
+                        rows={4}
                         value={formData.message}
                         onChange={handleChange}
-                        className={errors.message ? "border-destructive" : ""}
+                        className={`text-sm ${errors.message ? "border-destructive" : ""}`}
                       />
                       {errors.message && (
-                        <p className="text-sm text-destructive">{errors.message}</p>
+                        <p className="text-xs sm:text-sm text-destructive">{errors.message}</p>
                       )}
                     </div>
 

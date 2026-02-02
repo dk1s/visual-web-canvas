@@ -1,118 +1,8 @@
 import { motion } from "framer-motion";
-import { ExternalLink, Github, ArrowUpRight, MessageCircle, Database, Zap } from "lucide-react";
+import { ExternalLink, Github, ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-
-const projects = [
-  {
-    title: "Logyxpress",
-    description:
-      "End-to-end logistics and delivery management platform. Built responsive interfaces with React/Next.js, integrated RESTful APIs, implemented real-time tracking, and managed complex state with Redux for seamless order management.",
-    icon: "📦",
-    tags: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Redux", "API Integration"],
-    liveUrl: "https://app.logyxps.com/",
-    githubUrl: "#",
-    featured: true,
-    type: "Professional",
-    highlights: ["Real-time tracking", "CRUD Operations", "State Management"],
-  },
-  {
-    title: "CricArabia",
-    description:
-      "Premier cricket platform for the Arabian region. Developed responsive UI components, integrated live match APIs for real-time scores, implemented Zustand for efficient state management, and built interactive data visualizations.",
-    icon: "🏏",
-    tags: ["React", "TypeScript", "Tailwind CSS", "Zustand", "REST API", "Real-time Data"],
-    liveUrl: "https://cricarabia.com/",
-    githubUrl: "#",
-    featured: true,
-    type: "Professional",
-    highlights: ["Live Scores", "API Integration", "Zustand State"],
-  },
-  {
-    title: "Cric 11 (Fantasy)",
-    description:
-      "Feature-rich fantasy cricket application with team building, live scoring, and competitive leaderboards. Implemented complex state management with Redux, real-time updates via Socket.IO, and responsive mobile-first design.",
-    icon: "🎮",
-    tags: ["React", "Next.js", "TypeScript", "Redux", "Socket.IO", "Tailwind CSS"],
-    liveUrl: "https://cric11.com",
-    githubUrl: "#",
-    featured: true,
-    type: "Professional",
-    highlights: ["Socket.IO Chat", "Real-time Updates", "Redux State"],
-  },
-  {
-    title: "FireSetGo",
-    description:
-      "Dynamic event and activity booking platform. Built complete frontend with React, integrated payment APIs, implemented user authentication flows, and created intuitive booking interfaces with smooth animations.",
-    icon: "🔥",
-    tags: ["React", "Next.js", "TypeScript", "API Integration", "Zustand", "Tailwind CSS"],
-    liveUrl: "https://app.firesetgo.com/",
-    githubUrl: "#",
-    featured: true,
-    type: "Professional",
-    highlights: ["Payment Integration", "User Auth", "Booking System"],
-  },
-  {
-    title: "EventBooking",
-    description:
-      "Comprehensive event management and ticket booking system. Developed responsive event listings, integrated calendar APIs, built real-time seat selection, and implemented chat support via Socket.IO for customer assistance.",
-    icon: "🎫",
-    tags: ["React", "TypeScript", "Socket.IO", "Redux", "REST API", "Tailwind CSS"],
-    liveUrl: "https://event-booking.firesetgo.com/",
-    githubUrl: "#",
-    featured: true,
-    type: "Professional",
-    highlights: ["Chat Support", "Seat Selection", "Calendar Integration"],
-  },
-  {
-    title: "VisaNet",
-    description:
-      "Visa application and immigration services platform. Created multi-step application forms, integrated document upload APIs, built status tracking dashboard, and implemented secure data handling with form validation.",
-    icon: "🌍",
-    tags: ["React", "Next.js", "TypeScript", "Zustand", "API Integration", "Zod"],
-    liveUrl: "https://dev-visanet.weare86.in/",
-    githubUrl: "#",
-    featured: true,
-    type: "Professional",
-    highlights: ["Multi-step Forms", "Document Upload", "Status Tracking"],
-  },
-  {
-    title: "Portfolio Website",
-    description:
-      "A responsive personal portfolio website showcasing skills, projects, and achievements. Built with HTML, CSS, and JavaScript with smooth animations and modern design.",
-    icon: "🌐",
-    tags: ["HTML", "CSS", "JavaScript", "Responsive Design"],
-    liveUrl: "https://dk1s.github.io/Portfolio/",
-    githubUrl: "https://github.com/dk1s/Portfolio",
-    featured: false,
-    type: "Personal",
-    highlights: ["Responsive", "Animations", "Modern UI"],
-  },
-  {
-    title: "Anti-Sleep Alarm System",
-    description:
-      "B.Tech project: Developed an innovative Anti-sleep Alarm system with smart glasses that detects driver fatigue through eye-tracking sensors and alerts to prevent accidents on the road.",
-    icon: "👓",
-    tags: ["IoT", "Electronics", "Sensors", "Safety Systems", "Arduino"],
-    liveUrl: "#",
-    githubUrl: "#",
-    featured: false,
-    type: "Academic",
-    highlights: ["Eye Tracking", "Safety Alert", "IoT Sensors"],
-  },
-  {
-    title: "Wireless Mobile Charging",
-    description:
-      "Diploma project: Developed a wireless charging system enabling efficient and contactless power transfer using electromagnetic induction technology for modern smartphones.",
-    icon: "🔋",
-    tags: ["Electronics", "Electromagnetic Induction", "Power Transfer", "Hardware"],
-    liveUrl: "#",
-    githubUrl: "#",
-    featured: false,
-    type: "Academic",
-    highlights: ["Wireless Power", "EM Induction", "Hardware Design"],
-  },
-];
+import { usePortfolio } from "@/contexts/PortfolioContext";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -140,8 +30,11 @@ const itemVariants = {
 };
 
 const Projects = () => {
+  const { data } = usePortfolio();
+  const { projects, hero } = data;
+
   return (
-    <section id="projects" className="py-24 bg-background">
+    <section id="projects" className="py-16 sm:py-24 bg-background">
       <div className="container mx-auto px-4 sm:px-6">
         <motion.div
           className="max-w-7xl mx-auto"
@@ -151,23 +44,23 @@ const Projects = () => {
           transition={{ duration: 0.6 }}
         >
           <motion.div
-            className="text-center mb-16"
+            className="text-center mb-10 sm:mb-16"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4">
               Featured Projects
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-sm sm:text-lg text-muted-foreground max-w-2xl mx-auto px-4">
               Professional projects showcasing React, Next.js, API integration, state management (Redux, Zustand), and real-time features with Socket.IO.
             </p>
             <div className="w-20 h-1 bg-primary mx-auto rounded-full mt-4" />
           </motion.div>
 
           <motion.div
-            className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6"
+            className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
@@ -180,11 +73,11 @@ const Projects = () => {
                 whileHover={{ y: -8, transition: { type: "spring", stiffness: 300, damping: 20 } }}
                 className="group relative"
               >
-                <div className="h-full rounded-2xl border border-border bg-card overflow-hidden hover:border-primary/40 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10">
+                <div className="h-full rounded-xl sm:rounded-2xl border border-border bg-card overflow-hidden hover:border-primary/40 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10">
                   {/* Project Image/Icon */}
                   <div className="aspect-[16/10] bg-gradient-to-br from-muted via-muted/80 to-muted/50 flex items-center justify-center relative overflow-hidden">
                     <motion.span
-                      className="text-5xl md:text-6xl"
+                      className="text-4xl sm:text-5xl md:text-6xl"
                       whileHover={{ scale: 1.2, rotate: 5 }}
                       transition={{ type: "spring", stiffness: 300 }}
                     >
@@ -193,9 +86,9 @@ const Projects = () => {
                     <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/5 transition-colors duration-500" />
                     
                     {/* Type badge */}
-                    <div className="absolute top-3 left-3">
+                    <div className="absolute top-2 sm:top-3 left-2 sm:left-3">
                       <Badge 
-                        className={`transition-all duration-300 ${
+                        className={`text-xs transition-all duration-300 ${
                           project.type === "Professional" 
                             ? "bg-primary text-primary-foreground shadow-lg shadow-primary/20" 
                             : project.type === "Academic"
@@ -209,7 +102,7 @@ const Projects = () => {
 
                     {/* Quick links overlay */}
                     <motion.div
-                      className="absolute inset-0 flex items-center justify-center gap-3 bg-background/90 backdrop-blur-sm"
+                      className="absolute inset-0 flex items-center justify-center gap-2 sm:gap-3 bg-background/90 backdrop-blur-sm"
                       initial={{ opacity: 0 }}
                       whileHover={{ opacity: 1 }}
                       transition={{ duration: 0.3 }}
@@ -220,9 +113,9 @@ const Projects = () => {
                           whileHover={{ scale: 1, opacity: 1 }}
                           transition={{ delay: 0.1 }}
                         >
-                          <Button size="sm" variant="default" asChild className="shadow-lg">
+                          <Button size="sm" variant="default" asChild className="shadow-lg text-xs sm:text-sm">
                             <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                              <ExternalLink className="h-4 w-4 mr-1" />
+                              <ExternalLink className="h-3 w-3 sm:h-4 sm:w-4 mr-1" />
                               Live Demo
                             </a>
                           </Button>
@@ -234,9 +127,9 @@ const Projects = () => {
                           whileHover={{ scale: 1, opacity: 1 }}
                           transition={{ delay: 0.15 }}
                         >
-                          <Button size="sm" variant="outline" asChild>
+                          <Button size="sm" variant="outline" asChild className="text-xs sm:text-sm">
                             <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                              <Github className="h-4 w-4 mr-1" />
+                              <Github className="h-3 w-3 sm:h-4 sm:w-4 mr-1" />
                               Code
                             </a>
                           </Button>
@@ -246,9 +139,9 @@ const Projects = () => {
                   </div>
 
                   {/* Content */}
-                  <div className="p-5">
+                  <div className="p-4 sm:p-5">
                     <div className="flex items-start justify-between mb-2">
-                      <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors duration-300 line-clamp-1">
+                      <h3 className="text-base sm:text-lg font-semibold text-foreground group-hover:text-primary transition-colors duration-300 line-clamp-1">
                         {project.title}
                       </h3>
                       <motion.div
@@ -259,17 +152,17 @@ const Projects = () => {
                       </motion.div>
                     </div>
                     
-                    <p className="text-sm text-muted-foreground mb-4 line-clamp-3 leading-relaxed">
+                    <p className="text-xs sm:text-sm text-muted-foreground mb-3 sm:mb-4 line-clamp-3 leading-relaxed">
                       {project.description}
                     </p>
 
                     {/* Highlights */}
                     {project.highlights && (
-                      <div className="flex flex-wrap gap-1.5 mb-3">
+                      <div className="flex flex-wrap gap-1 sm:gap-1.5 mb-2 sm:mb-3">
                         {project.highlights.map((highlight) => (
                           <span
                             key={highlight}
-                            className="text-xs px-2 py-0.5 bg-primary/10 text-primary rounded-full font-medium"
+                            className="text-[10px] sm:text-xs px-1.5 sm:px-2 py-0.5 bg-primary/10 text-primary rounded-full font-medium"
                           >
                             {highlight}
                           </span>
@@ -278,14 +171,14 @@ const Projects = () => {
                     )}
 
                     {/* Tech tags */}
-                    <div className="flex flex-wrap gap-1.5">
+                    <div className="flex flex-wrap gap-1 sm:gap-1.5">
                       {project.tags.slice(0, 4).map((tag) => (
-                        <Badge key={tag} variant="secondary" className="text-xs">
+                        <Badge key={tag} variant="secondary" className="text-[10px] sm:text-xs">
                           {tag}
                         </Badge>
                       ))}
                       {project.tags.length > 4 && (
-                        <Badge variant="secondary" className="text-xs">
+                        <Badge variant="secondary" className="text-[10px] sm:text-xs">
                           +{project.tags.length - 4}
                         </Badge>
                       )}
@@ -297,15 +190,15 @@ const Projects = () => {
           </motion.div>
 
           <motion.div
-            className="text-center mt-12"
+            className="text-center mt-8 sm:mt-12"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3, duration: 0.5 }}
           >
             <Button variant="outline" size="lg" asChild className="group">
-              <a href="https://github.com/dk1s" target="_blank" rel="noopener noreferrer">
-                <Github className="mr-2 h-5 w-5 group-hover:rotate-12 transition-transform duration-300" />
+              <a href={hero.githubUrl} target="_blank" rel="noopener noreferrer">
+                <Github className="mr-2 h-4 w-4 sm:h-5 sm:w-5 group-hover:rotate-12 transition-transform duration-300" />
                 View All Projects on GitHub
               </a>
             </Button>
