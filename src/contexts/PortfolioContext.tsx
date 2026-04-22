@@ -195,6 +195,17 @@ const defaultData: PortfolioData = {
       highlights: ["Multi-step Forms", "Document Upload", "Status Tracking"],
     },
     {
+      title: "Cricket Gyan",
+      description: "Comprehensive cricket knowledge and analytics platform delivering real-time match updates, detailed statistics, and interactive cricket insights. Built with React and Redux for robust state management, WebSocket for live data streaming, and Tailwind CSS for a polished responsive UI.",
+      icon: "🏏",
+      tags: ["React", "Redux", "Tailwind CSS", "WebSocket", "TypeScript"],
+      liveUrl: "https://cricgyan.weare86.in/",
+      githubUrl: "#",
+      featured: true,
+      type: "Professional",
+      highlights: ["Real-time Updates", "WebSocket", "Redux State"],
+    },
+    {
       title: "Portfolio Website",
       description: "A responsive personal portfolio website showcasing skills, projects, and achievements. Built with HTML, CSS, and JavaScript with smooth animations and modern design.",
       icon: "🌐",
