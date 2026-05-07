@@ -4,7 +4,7 @@ import { Settings } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
-const SECRET_SEQUENCE = ["d", "k", "a"];
+const SECRET_SEQUENCE = ["d", "k", "s"];
 const SEQUENCE_TIMEOUT = 2000; // 2 seconds to complete sequence
 const VISIBLE_DURATION = 30000; // 30 seconds visible
 
