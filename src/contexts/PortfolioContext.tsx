@@ -260,8 +260,8 @@ const defaultData: PortfolioData = {
       { name: "HTML/CSS", level: 95 },
     ],
     backend: [
-      { name: "Node.js", level: 85 },
-      { name: "MongoDB", level: 80 },
+      { name: "Node.js", level: 70 },
+      { name: "MongoDB", level: 70 },
       { name: "Python", level: 75 },
       { name: "SQL", level: 80 },
       { name: "Git", level: 85 },
