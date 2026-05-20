@@ -123,7 +123,7 @@ const Hero = () => {
               <a href="#contact">Get in Touch</a>
             </Button>
             <Button size="lg" variant="secondary" asChild className="w-full sm:w-auto">
-              <a href="/DeepakKumar_Resume.pdf" target="_blank" rel="noopener noreferrer" download>
+              <a href="/DeepakKumar_Resume.pdf" download="DeepakKumar_Resume.pdf">
                 <Download className="mr-2 h-4 w-4" />
                 Resume
               </a>
